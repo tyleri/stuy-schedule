@@ -1,0 +1,5 @@
+" Vim temp files
+*~
+
+" Vim currently used files
+*.swp
