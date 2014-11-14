@@ -1,6 +1,8 @@
 $( document ).ready(function() {
 
+	$("#clock").hide();
 	updateTime();
+	$("#clock").fadeIn(1500);
 	setInterval( "updateTime()", 1000 );
 	//setInterval( "setBackground()", 5000 );
 
