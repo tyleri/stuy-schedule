@@ -2,6 +2,7 @@ $( document ).ready(function() {
 
 	updateTime();
 	setInterval( "updateTime()", 1000 );
+	//setInterval( "setBackground()", 5000 );
 
 });
 
@@ -10,4 +11,7 @@ function updateTime() {
 	var timeStr = time.toLocaleTimeString();
 
 	$("#clock").html(timeStr);
+}
+
+function setBackground() {
 }
