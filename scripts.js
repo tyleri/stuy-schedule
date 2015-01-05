@@ -1,54 +1,62 @@
 var regSchedule = [
-	{name: "Before School", value: new Date(2015,0,1,8)},
-	{name: "Period 1", value: new Date(2015,0,1,8,41)},
-	{name: "Before Period 2", value: new Date(2015,0,1,8,45)},
-	{name: "Period 2", value: new Date(2015,0,1,9,26)},
-	{name: "Before Period 3", value: new Date(2015,0,1,9,31)},
-	{name: "Period 3", value: new Date(2015,0,1,10,15)},
-	{name: "Before Period 4", value: new Date(2015,0,1,10,20)},
-	{name: "Period 4", value: new Date(2015,0,1,11,1)},
-	{name: "Before Period 5", value: new Date(2015,0,1,11,6)},
-	{name: "Period 5", value: new Date(2015,0,1,11,47)},
-	{name: "Before Period 6", value: new Date(2015,0,1,11,52)},
-	{name: "Period 6", value: new Date(2015,0,1,12,33)},
-	{name: "Before Period 7", value: new Date(2015,0,1,12,38)},
-	{name: "Period 7", value: new Date(2015,0,1,13,19)},
-	{name: "Before Period 8", value: new Date(2015,0,1,13,24)},
-	{name: "Period 8", value: new Date(2015,0,1,14,5)},
-	{name: "Before Period 9", value: new Date(2015,0,1,14,9)},
-	{name: "Period 9", value: new Date(2015,0,1,14,50)},
-	{name: "Before Period 10", value: new Date(2015,0,1,14,54)},
-	{name: "Period 10", value: new Date(2015,0,1,15,35)}
+	{start: new Date(2015,0,1,8), end: new Date(2015,0,1,15,35)},
+	{start: new Date(2015,0,1,8), end: new Date(2015,0,1,8,41)},
+	{start: new Date(2015,0,1,8,45), end: new Date(2015,0,1,9,26)},
+	{start: new Date(2015,0,1,9,31), end: new Date(2015,0,1,10,15)},
+	{start: new Date(2015,0,1,10,20), end: new Date(2015,0,1,11,1)},
+	{start: new Date(2015,0,1,11,6), end: new Date(2015,0,1,11,47)},
+	{start: new Date(2015,0,1,11,52), end: new Date(2015,0,1,12,33)},
+	{start: new Date(2015,0,1,12,38), end: new Date(2015,0,1,13,19)},
+	{start: new Date(2015,0,1,13,24), end: new Date(2015,0,1,14,5)},
+	{start: new Date(2015,0,1,14,9), end: new Date(2015,0,1,14,50)},
+	{start: new Date(2015,0,1,14,54), end: new Date(2015,0,1,15,35)}
 ];
 
 
 function updateSchedule() {
-	for (var i = 0; i < regSchedule.length; i++) {
-		var str = regSchedule[i].value.toLocaleTimeString() + " - ";
-		i++;
-		str += regSchedule[i].value.toLocaleTimeString();
-		$("#Period" + (i+1)/2).html(str);
+	for (var i = 1; i < regSchedule.length; i++) {
+		var str = "<td>" + "Period " + i + "</td>";
+		str += "<td>";
+		str += regSchedule[i].start.toLocaleTimeString() + " - ";
+		str += regSchedule[i].end.toLocaleTimeString();
+		str += "</td>";
+		$("#Period" + i).html(str);
 	}
 }
 
 function updateTime() {
+	// Updates current time
 	var time = new Date();
 	time.setFullYear(2015,0,1);
-	var timeStr = time.toLocaleTimeString();
+	$("#clock").html( time.toLocaleTimeString() );
 
-	$("#clock").html(timeStr);
-
-	for (var i = 0; i < regSchedule.length; i++) {
-		if (time < regSchedule[i].value) {
-			$("#curr").html(regSchedule[i].name);
-			break;
+	// Updates current period
+	for (var i = 1; i < regSchedule.length; i++) {
+		if ( isIn(time,regSchedule[i-1].end,regSchedule[i].start) ) {
+			$("#curr").html("Before Period " + i);
+		} else if ( isIn(time,regSchedule[i].start,regSchedule[i].end) ) {
+			$("#curr").html("Period " + i);
+			$("#Period" + i).css("font-weight", "bold")
+				.css("background-color", "blue");
 		} else {
-			$("#curr").html("After School");
+			$("#Period" + i).css("font-weight", "normal");
 		}
+	}
+	// If not during school
+	if (time < regSchedule[0].start || time > regSchedule[0].end) {
+		var nextMorning = new Date(time);
+		nextMorning.setHours(nextMorning.getHours() + 9);
+		nextMorning.setHours(8,0,0,0);
+		var minutesUntil = Math.ceil( (nextMorning - time)/1000/60);
+		$("#curr").html(minutesUntil + " minutes until school");
 	}
 }
 
 function setBackground() {
+}
+
+function isIn(now, start, end) {
+	return start <= now && now <= end;
 }
 
 $( document ).ready(function() {
