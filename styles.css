@@ -1,9 +1,23 @@
 body {
 	background-color:69D9E0;
-}
-#clock {
 	color:white;
 	font-family: 'Raleway', sans-serif;
+}
+#clock {
 	font-size:60px;
 	text-align:center;
+	margin-bottom:30px;
+}
+table {
+	margin:auto;
+	border-collapse: collapse;
+}
+td {
+	border:1px solid;
+	padding:10px;
+}
+#curr {
+	text-align:center;
+	font-size:30px;
+	margin-bottom:100px;
 }
