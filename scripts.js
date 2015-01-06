@@ -47,8 +47,11 @@ function updateTime() {
 		var nextMorning = new Date(time);
 		nextMorning.setHours(nextMorning.getHours() + 9);
 		nextMorning.setHours(8,0,0,0);
-		var minutesUntil = Math.ceil( (nextMorning - time)/1000/60);
-		$("#curr").html(minutesUntil + " minutes until school");
+		var minutes = Math.ceil( (nextMorning - time)/1000/60);
+		var hours = Math.floor(minutes / 60);
+		minutes %= 60;
+		$("#curr").html(hours + " hours and " +
+				minutes + " minutes until school");
 	}
 }
 
