@@ -1,3 +1,14 @@
+function Time(h, m) {
+	this.hours = h;
+	this.minutes = arguments.length == 2 ? m : 0;
+}
+
+Time.prototype.toString = function() {
+	var str = this.hours + ':';
+	str += this.minutes < 10 ? '0'+this.minutes : this.minutes;
+	return str;
+};
+
 var regSchedule = [
 	{start: new Date(2015,0,1,8), end: new Date(2015,0,1,15,35)},
 	{start: new Date(2015,0,1,8), end: new Date(2015,0,1,8,41)},
@@ -34,15 +45,14 @@ function updateTime() {
 	for (var i = 1; i < regSchedule.length; i++) {
 		if ( isIn(time,regSchedule[i-1].end,regSchedule[i].start) ) {
 			$("#curr").html("Before Period " + i);
+			$("#Period" + (i-1))
+				.css("background-color", "transparent")
+				.css("font-weight", "normal");
 		} else if ( isIn(time,regSchedule[i].start,regSchedule[i].end) ) {
 			$("#curr").html("Period " + i);
 			$("#Period" + i)
-				.animate({backgroundColor: "blue"}, 1000)
+				.css("background-color", "blue")
 				.css("font-weight", "bold");
-		} else {
-			$("#Period" + i)
-				.animate({backgroundColor: "transparent"}, 1000)
-				.css("font-weight", "normal");
 		}
 	}
 	// If not during school
@@ -62,7 +72,7 @@ function setBackground() {
 }
 
 function isIn(now, start, end) {
-	return start <= now && now <= end;
+	return start <= now && now < end;
 }
 
 $( document ).ready(function() {
@@ -72,6 +82,8 @@ $( document ).ready(function() {
 	$("#content").fadeIn(1500);
 	setInterval( "updateTime()", 1000 );
 	updateSchedule();
+
+	
 
 });
 
