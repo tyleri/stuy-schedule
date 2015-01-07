@@ -36,10 +36,13 @@ function updateTime() {
 			$("#curr").html("Before Period " + i);
 		} else if ( isIn(time,regSchedule[i].start,regSchedule[i].end) ) {
 			$("#curr").html("Period " + i);
-			$("#Period" + i).css("font-weight", "bold")
-				.css("background-color", "blue");
+			$("#Period" + i)
+				.animate({backgroundColor: "blue"}, 1000)
+				.css("font-weight", "bold");
 		} else {
-			$("#Period" + i).css("font-weight", "normal");
+			$("#Period" + i)
+				.animate({backgroundColor: "transparent"}, 1000)
+				.css("font-weight", "normal");
 		}
 	}
 	// If not during school
