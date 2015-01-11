@@ -24,39 +24,36 @@ var regSchedule = [
 ];
 
 
-function updateSchedule() {
-	for (var i = 1; i < regSchedule.length; i++) {
-		var str = "<td>" + "Period " + i + "</td>";
-		str += "<td>";
-		str += regSchedule[i].start.toLocaleTimeString() + " - ";
-		str += regSchedule[i].end.toLocaleTimeString();
-		str += "</td>";
-		$("#Period" + i).html(str);
+function updateSchedule(schedule) {
+	for (var i = 1; i < schedule.length; i++) {
+		var str = schedule[i].start.toLocaleTimeString() + " - ";
+		str += schedule[i].end.toLocaleTimeString();
+		$("#Period" + i + ">.time").html(str);
 	}
 }
 
-function updateTime() {
+function updateTime(schedule) {
 	// Updates current time
 	var time = new Date();
 	time.setFullYear(2015,0,1);
 	$("#clock").html( time.toLocaleTimeString() );
 
 	// Updates current period
-	for (var i = 1; i < regSchedule.length; i++) {
-		if ( isIn(time,regSchedule[i-1].end,regSchedule[i].start) ) {
+	var per;
+	for (var i = 1; i < schedule.length; i++) {
+		if ( isIn(time,schedule[i-1].end,schedule[i].start) ) {
 			$("#curr").html("Before Period " + i);
-			$("#Period" + (i-1))
-				.css("background-color", "transparent")
-				.css("font-weight", "normal");
-		} else if ( isIn(time,regSchedule[i].start,regSchedule[i].end) ) {
+		} else if ( isIn(time,schedule[i].start,schedule[i].end) ) {
 			$("#curr").html("Period " + i);
-			$("#Period" + i)
-				.css("background-color", "blue")
-				.css("font-weight", "bold");
+			$("#Period" + i + ">div").addClass("selected");
+		} else {
+			if ( $("#Period" + i).hasClass("selected") ) {
+				$("#Period" + i).removeClass("selected");
+			}
 		}
 	}
 	// If not during school
-	if (time < regSchedule[0].start || time > regSchedule[0].end) {
+	if (time < schedule[0].start || time > schedule[0].end) {
 		var nextMorning = new Date(time);
 		nextMorning.setHours(nextMorning.getHours() + 9);
 		nextMorning.setHours(8,0,0,0);
@@ -78,10 +75,10 @@ function isIn(now, start, end) {
 $( document ).ready(function() {
 
 	$("#content").hide();
-	updateTime();
+	updateTime(regSchedule);
+	updateSchedule(regSchedule);
 	$("#content").fadeIn(1500);
 	setInterval( "updateTime()", 1000 );
-	updateSchedule();
 
 	
 

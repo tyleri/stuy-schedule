@@ -2,23 +2,24 @@ body {
 	background-color:69D9E0;
 	color:white;
 	font-family: 'Raleway', sans-serif;
+	text-align:center;
 }
 #clock {
-	font-size:75px;
-	text-align:center;
-	margin-bottom:30px;
+	font-size:50px;
+	margin-bottom:18px;
 }
 #curr {
-	text-align:center;
 	font-size:30px;
-	margin-bottom:50px;
+	margin-bottom:18px;
 }
-table {
-	margin:auto;
-	border-collapse: collapse;
-	text-align:center;
+.selected {
+	background-color:blue;
+	font-style:bold;
+}
+.container>div {
+	height:36px;
 	font-size:18px;
 }
-td {
-	padding:10px;
+.time {
+	font-size:18px;
 }
