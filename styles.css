@@ -8,18 +8,17 @@ body {
 	font-size:50px;
 	margin-bottom:18px;
 }
-#curr {
+#per {
 	font-size:30px;
 	margin-bottom:18px;
 }
-.selected {
-	background-color:blue;
-	font-style:bold;
+#table {
+	border-radius:10px;
+	background-color:white;
 }
-.container>div {
-	height:36px;
+#table>div {
+	color:01AFD2;
 	font-size:18px;
-}
-.time {
-	font-size:18px;
+	border-radius:10px;
+	margin:10px;
 }

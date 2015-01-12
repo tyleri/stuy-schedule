@@ -39,17 +39,19 @@ function updateTime(schedule) {
 	$("#clock").html( time.toLocaleTimeString() );
 
 	// Updates current period
-	var per;
+	var min;
 	for (var i = 1; i < schedule.length; i++) {
 		if ( isIn(time,schedule[i-1].end,schedule[i].start) ) {
 			$("#curr").html("Before Period " + i);
+			min = Math.ceil( (schedule[i].start - time) / 1000 / 60 );
+			$("#min-left").html( min + " minutes left");
 		} else if ( isIn(time,schedule[i].start,schedule[i].end) ) {
 			$("#curr").html("Period " + i);
-			$("#Period" + i + ">div").addClass("selected");
+			$("#Period" + i + ">div").addClass("bg-primary");
+			min = Math.ceil( (schedule[i].end - time) / 1000 / 60 );
+			$("#min-left").html( min + " minutes left");
 		} else {
-			if ( $("#Period" + i).hasClass("selected") ) {
-				$("#Period" + i).removeClass("selected");
-			}
+				$("#Period" + i).removeClass("bg-primary");
 		}
 	}
 	// If not during school
@@ -62,7 +64,10 @@ function updateTime(schedule) {
 		minutes %= 60;
 		$("#curr").html(hours + " hours and " +
 				minutes + " minutes until school");
-	}
+		if ( $("#curr").hasClass("col-xs-6") )
+			$("#curr").removeClass("col-xs-6").addClass("col-xs-12");
+	} else if ( $("#curr").hasClass("col-xs-12") )
+		$("#curr").addClass("col-xs-6").removeClass("col-xs-12");
 }
 
 function setBackground() {
@@ -72,15 +77,9 @@ function isIn(now, start, end) {
 	return start <= now && now < end;
 }
 
-$( document ).ready(function() {
 
 	$("#content").hide();
 	updateTime(regSchedule);
 	updateSchedule(regSchedule);
 	$("#content").fadeIn(1500);
 	setInterval( "updateTime()", 1000 );
-
-	
-
-});
-
