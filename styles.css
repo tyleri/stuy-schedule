@@ -1,24 +1,20 @@
 body {
 	background-color:69D9E0;
-	color:white;
 	font-family: 'Raleway', sans-serif;
-	text-align:center;
+	min-width:310px;
 }
 #clock {
-	font-size:50px;
+	font-size:55px;
 	margin-bottom:18px;
+	color:white;
 }
-#per {
+#curr {
 	font-size:30px;
 	margin-bottom:18px;
+	color:white;
 }
-#table {
-	border-radius:10px;
+table {
 	background-color:white;
-}
-#table>div {
-	color:01AFD2;
 	font-size:18px;
-	border-radius:10px;
-	margin:10px;
+	color:01AFD2;
 }

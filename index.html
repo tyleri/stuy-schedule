@@ -1,71 +1,76 @@
 <html>
 
 	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset='utf-8'>
+		<meta name='viewport' content='width=device-width, initial-scale=1'>
 		<title>Clock</title>
 		<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-		<link href="styles.css" rel="stylesheet" type="text/css">
+		<link href='css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+		<link href='styles.css' rel='stylesheet' type='text/css'>
 	</head>
 
-	<body id="content">
+	<body id='content'>
 
-		<div id="clock"></div>
+		<div class='container'>
+			<div class='text-center' id='clock'></div>
+		</div>
 
-		<div class="container" id="per">
-			<div class="row">
-				<div class="col-xs-6" id="curr"></div>
-				<div class="col-xs-6" id="min-left"></div>
+		<div class='container' id='curr'>
+			<div class='row text-center'>
+				<div class='col-sm-6' id='per'></div>
+				<div class='col-sm-6' id='min-left'></div>
+				<div id='until-school'></div>
 			</div>
 		</div>
 
-		<div class="container" id="table">
-			<div class="row" id="Period1">
-				<div class="col-xs-4">Period 1</div>
-				<div class="time col-xs-8"></div>
-			</div>
-			<div class="row" id="Period2">
-				<div class="col-xs-4 col-md-4">Period 2</div>
-				<div class="time col-xs-8"></div>
-			</div>
-			<div class="row" id="Period3">
-				<div class="col-xs-4">Period 3</div>
-				<div class="time col-xs-8"></div>
-			</div>
-			<div class="row" id="Period4">
-				<div class="col-xs-4">Period 4</div>
-				<div class="time col-xs-8"></div>
-			</div>
-			<div class="row" id="Period5">
-				<div class="col-xs-4">Period 5</div>
-				<div class="time col-xs-8"></div>
-			</div>
-			<div class="row" id="Period6">
-				<div class="col-xs-4">Period 6</div>
-				<div class="time col-xs-8"></div>
-			</div>
-			<div class="row" id="Period7">
-				<div class="col-xs-4">Period 7</div>
-				<div class="time col-xs-8"></div>
-			</div>
-			<div class="row" id="Period8">
-				<div class="col-xs-4">Period 8</div>
-				<div class="time col-xs-8"></div>
-			</div>
-			<div class="row" id="Period9">
-				<div class="col-xs-4">Period 9</div>
-				<div class="time col-xs-8"></div>
-			</div>
-			<div class="row" id="Period10">
-				<div class="col-xs-4">Period 10</div>
-				<div class="time col-xs-8"></div>
-			</div>
+		<div class='container'>
+			<table class='table text-center'>
+				<tr id='Period1'>
+					<td> Period 1</div>
+					<td class='time'></td>
+				</tr>
+				<tr id='Period2'>
+					<td> Period 2</div>
+					<td class='time'></td>
+				</tr>
+				<tr id='Period3'>
+					<td> Period 3</div>
+					<td class='time'></td>
+				</tr>
+				<tr id='Period4'>
+					<td> Period 4</div>
+					<td class='time'></td>
+				</tr>
+				<tr id='Period5'>
+					<td> Period 5</div>
+					<td class='time'></td>
+				</tr>
+				<tr id='Period6'>
+					<td> Period 6</div>
+					<td class='time'></td>
+				</tr>
+				<tr id='Period7'>
+					<td> Period 7</div>
+					<td class='time'></td>
+				</tr>
+				<tr id='Period8'>
+					<td> Period 8</div>
+					<td class='time'></td>
+				</tr>
+				<tr id='Period9'>
+					<td> Period 9</div>
+					<td class='time'></td>
+				</tr>
+				<tr id='Period10'>
+					<td> Period 10</div>
+					<td class='time'></td>
+				</tr>
+			</table>
 		</div>
 
 	</body>
-	<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="scripts.js"></script>
+	<script type='text/javascript' src='jquery-2.1.1.min.js'></script>
+	<script type='text/javascript' src='js/bootstrap.min.js'></script>
+	<script type='text/javascript' src='scripts.js'></script>
 
 </html>

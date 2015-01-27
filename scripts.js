@@ -21,7 +21,7 @@ Time.prototype.toString = function() {
 }
 
 Time.prototype.isBetween = function(start, end) {
-	return this.toMin() > start.toMin() && this.toMin() < end.toMin();
+	return this.toMin() >= start.toMin() && this.toMin() < end.toMin();
 }
 
 Time.prototype.subtract = function(t) {
@@ -63,33 +63,41 @@ function updateTime(schedule) {
 	$("#clock").html( currDate.toLocaleTimeString() );
 
 	var currTime = new Time(currDate.getHours(), currDate.getMinutes());
-	// If not during school
+
 	if ( ! currTime.isBetween(schedule[0].start, schedule[0].end) ) {
-		var minutes = Math.ceil( new Time(8).subtract( currTime ) );
+		// If not during school
+		for (var i = 1; i < schedule.length; i++)
+				if ( $("#Period" + i).hasClass("info") )
+					$("#Period" + i).removeClass("info");
+
+		if ( $("#per").html() != "" || $("#min-left").html() != "" ) {
+			$("#per").html("");
+			$("#min-left").html("");
+		}
+		var minutes = new Time(8).subtract( currTime );
 		var hours = Math.floor(minutes / 60);
 		minutes %= 60;
-		$("#curr").html(hours + " hours and " +
+		$("#until-school").html(hours + " hours and " +
 				minutes + " minutes until school");
-		if ( $("#curr").hasClass("col-xs-6") )
-			$("#curr").removeClass("col-xs-6").addClass("col-xs-12");
-	}
-	else if ( $("#curr").hasClass("col-xs-12") ) {
-		$("#curr").addClass("col-xs-6").removeClass("col-xs-12");
 	} else {
-		// Updates current period
+		// Updates current period if during school
+		if ( $("#until-school").html() != "" )
+			$("#until-school").html("");
 		var min;
 		for (var i = 1; i < schedule.length; i++) {
 			if ( currTime.isBetween(schedule[i-1].end,schedule[i].start) ) {
-				$("#curr").html("Before Period " + i);
-				min = Math.ceil( (schedule[i].start - currTime) / 1000 / 60 );
+				$("#per").html("Before Period " + i);
+				min = schedule[i].start.subtract(currTime);
 				$("#min-left").html( min + " minutes left");
 			} else if ( currTime.isBetween(schedule[i].start,schedule[i].end) ) {
-				$("#curr").html("Period " + i);
-				$("#Period" + i + ">div").addClass("bg-primary");
-				min = Math.ceil( (schedule[i].end - currTime) / 1000 / 60 );
+				$("#per").html("Period " + i);
+				if ( ! $("#Period" + i).hasClass("info") )
+					$("#Period" + i).addClass("info");
+				min = schedule[i].end.subtract(currTime);
 				$("#min-left").html( min + " minutes left");
 			} else {
-				$("#Period" + i).removeClass("bg-primary");
+				if ( $("#Period" + i).hasClass("info") )
+					$("#Period" + i).removeClass("info");
 			}
 		}
 	}
