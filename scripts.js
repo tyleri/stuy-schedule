@@ -49,6 +49,21 @@ var regSchedule = [
 	{start: new Time(14,54), end: new Time(15,35)}
 ];
 
+var hrSchedule = [
+	{start: new Time(8), end: new Time(15,35)},
+	{start: new Time(8), end: new Time(8,40)},
+	{start: new Time(8,45), end: new Time(9,25)},
+	{start: new Time(9,29), end: new Time(10,9)},
+	{start: new Time(10,30), end: new Time(11,10)},
+	{start: new Time(11,14), end: new Time(11,54)},
+	{start: new Time(11,58), end: new Time(12,38)},
+	{start: new Time(12,42), end: new Time(13,22)},
+	{start: new Time(13,26), end: new Time(14,6)},
+	{start: new Time(14,10), end: new Time(14,50)},
+	{start: new Time(14,55), end: new Time(15,35)}
+];
+
+
 function updateSchedule(schedule) {
 	for (var i = 1; i < schedule.length; i++) {
 		var str = schedule[i].start + " - ";
@@ -85,11 +100,7 @@ function updateTime(schedule) {
 			$("#until-school").html("");
 		var min;
 		for (var i = 1; i < schedule.length; i++) {
-			if ( currTime.isBetween(schedule[i-1].end,schedule[i].start) ) {
-				$("#per").html("Before Period " + i);
-				min = schedule[i].start.subtract(currTime);
-				$("#min-left").html( min + " minutes left");
-			} else if ( currTime.isBetween(schedule[i].start,schedule[i].end) ) {
+			if ( currTime.isBetween(schedule[i].start,schedule[i].end) ) {
 				$("#per").html("Period " + i);
 				if ( ! $("#Period" + i).hasClass("info") )
 					$("#Period" + i).addClass("info");
@@ -98,6 +109,12 @@ function updateTime(schedule) {
 			} else {
 				if ( $("#Period" + i).hasClass("info") )
 					$("#Period" + i).removeClass("info");
+
+				if ( currTime.isBetween(schedule[i-1].end,schedule[i].start) ) {
+					$("#per").html("Before Period " + i);
+					min = schedule[i].start.subtract(currTime);
+					$("#min-left").html( min + " minutes left");
+				} 
 			}
 		}
 	}
@@ -106,12 +123,31 @@ function updateTime(schedule) {
 function setBackground() {
 }
 
+// tabs
+$('#schedule a[href="#regular"]').click(function (e) {
+	e.preventDefault();
+	$(this).tab('show');
+	updateSchedule(regSchedule);
+	schedule = regSchedule;
+})
+$('#schedule a[href="#homeroom"]').click(function (e) {
+	e.preventDefault();
+	$(this).tab('show');
+	updateSchedule(hrSchedule);
+	schedule = hrSchedule;
+})
+
+// global variable for changing schedule
+var schedule;
+
 $( function() {
 
+	schedule = regSchedule;
+
 	$("#content").hide();
-	updateTime(regSchedule);
-	updateSchedule(regSchedule);
+	updateTime(schedule);
+	updateSchedule(schedule);
 	$("#content").fadeIn(1500);
-	setInterval( "updateTime(regSchedule)", 1000 );
+	setInterval( function() { updateTime(schedule); }, 1000 );
 
 });
