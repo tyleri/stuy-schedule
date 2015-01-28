@@ -140,12 +140,14 @@ $('#schedule a[href="#regular"]').click(function (e) {
 	e.preventDefault();
 	$(this).tab('show');
 	updateSchedule(regSchedule);
+	updateTime(regSchedule);
 	schedule = regSchedule;
 })
 $('#schedule a[href="#homeroom"]').click(function (e) {
 	e.preventDefault();
 	$(this).tab('show');
 	updateSchedule(hrSchedule);
+	updateTime(hrSchedule);
 	schedule = hrSchedule;
 })
 
