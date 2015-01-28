@@ -74,12 +74,14 @@ function updateSchedule(schedule) {
 
 function updateTime(schedule) {
 	// Updates current time
-	var currDate = new Date();
-	$("#clock").html( currDate.toLocaleTimeString() );
+	var today = new Date();
+	var dow = today.getDay(); // day of week
+	$("#clock").html( today.toLocaleTimeString() );
 
-	var currTime = new Time(currDate.getHours(), currDate.getMinutes());
+	var currTime = new Time(today.getHours(), today.getMinutes());
 
-	if ( ! currTime.isBetween(schedule[0].start, schedule[0].end) ) {
+	if ( ! currTime.isBetween(schedule[0].start, schedule[0].end) ||
+			dow == 6 || dow == 0) {
 		// If not during school
 		for (var i = 1; i < schedule.length; i++)
 				if ( $("#Period" + i).hasClass("info") )
@@ -92,6 +94,16 @@ function updateTime(schedule) {
 		var minutes = new Time(8).subtract( currTime );
 		var hours = Math.floor(minutes / 60);
 		minutes %= 60;
+
+		// add 24 or 48 hours if on the weekend
+		hours +=
+			(dow == 5 && currTime.toMin() > schedule[0].end.toMin()) ||
+			(dow == 6 && currTime.toMin() < schedule[0].start.toMin()) ?
+			24 * 2 :
+			(dow == 6 && currTime.toMin() > schedule[0].start.toMin()) ||
+			(dow == 0 && currTime.toMin() < schedule[0].start.toMin()) ?
+			24 : 0;
+
 		$("#until-school").html(hours + " hours and " +
 				minutes + " minutes until school");
 	} else {
@@ -142,7 +154,11 @@ var schedule;
 
 $( function() {
 
-	schedule = regSchedule;
+	var today = new Date();
+	if ( today.getDay() == 2 )
+		$('#schedule a[href="#homeroom"]').click();
+	else
+		$('#schedule a[href="#regular"]').click();
 
 	$("#content").hide();
 	updateTime(schedule);
