@@ -72,12 +72,16 @@ function updateSchedule(schedule) {
 	}
 }
 
-function updateTime(schedule) {
+function updateTime() {
+	// Updates current time
+	var today = new Date();
+	$("#clock").html( today.toLocaleTimeString() );
+}
+
+function updatePeriod(schedule) {
 	// Updates current time
 	var today = new Date();
 	var dow = today.getDay(); // day of week
-	$("#clock").html( today.toLocaleTimeString() );
-
 	var currTime = new Time(today.getHours(), today.getMinutes());
 
 	if ( ! currTime.isBetween(schedule[0].start, schedule[0].end) ||
@@ -140,14 +144,14 @@ $('#schedule a[href="#regular"]').click(function (e) {
 	e.preventDefault();
 	$(this).tab('show');
 	updateSchedule(regSchedule);
-	updateTime(regSchedule);
+	updatePeriod(regSchedule);
 	schedule = regSchedule;
 })
 $('#schedule a[href="#homeroom"]').click(function (e) {
 	e.preventDefault();
 	$(this).tab('show');
 	updateSchedule(hrSchedule);
-	updateTime(hrSchedule);
+	updatePeriod(hrSchedule);
 	schedule = hrSchedule;
 })
 
@@ -156,16 +160,18 @@ var schedule;
 
 $( function() {
 
+	$("#content").hide();
+
 	var today = new Date();
 	if ( today.getDay() == 2 )
 		$('#schedule a[href="#homeroom"]').click();
 	else
 		$('#schedule a[href="#regular"]').click();
 
-	$("#content").hide();
-	updateTime(schedule);
-	updateSchedule(schedule);
+	updateTime()
 	$("#content").fadeIn(1500);
-	setInterval( function() { updateTime(schedule); }, 1000 );
+	setInterval(
+		function() { updateTime(); updatePeriod(schedule); },
+		1000 );
 
 });
