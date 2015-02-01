@@ -35,6 +35,23 @@ Time.prototype.subtract = function(t) {
 // End of Time class
 // *********************************************************************
 
+// changing the Date.toString function
+Date.prototype.toString = function() {
+	var hours = this.getHours();
+	var minutes = this.getMinutes();
+	var seconds = this.getSeconds();
+
+	var ampm = hours < 12 ? "AM" : "PM";
+	hours =
+		hours == 0 ? 12
+		: hours < 13 ? hours
+		: hours - 12;
+	minutes = minutes < 10 ? "0" + minutes : minutes;
+	seconds = seconds < 10 ? "0" + seconds : seconds;
+
+	return hours + ":" + minutes + ":" + seconds + " " + ampm;
+};
+
 var regSchedule = [
 	{start: new Time(8), end: new Time(15,35)},
 	{start: new Time(8), end: new Time(8,41)},
@@ -75,7 +92,7 @@ function updateSchedule(schedule) {
 function updateTime() {
 	// Updates current time
 	var today = new Date();
-	$("#clock").html( today.toLocaleTimeString() );
+	$("#clock").html( today );
 }
 
 function updatePeriod(schedule) {
