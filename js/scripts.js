@@ -89,6 +89,19 @@ var AMCHalfDay = [
 {name: "Period 10", id: "Period10", start: new Time(12,20), end: new Time(12,41)}
 ];
 
+var PTCHalfDay = [
+{name: "Period 1", id: "Period1", start: new Time(8,15), end: new Time(8,35)},
+{name: "Period 2", id: "Period2", start: new Time(8,39), end: new Time(8,59)},
+{name: "Period 3", id: "Period3", start: new Time(9,3), end: new Time(9,23)},
+{name: "Period 4", id: "Period4", start: new Time(9,27), end: new Time(9,47)},
+{name: "Period 5", id: "Period5", start: new Time(9,51), end: new Time(10,11)},
+{name: "Period 6", id: "Period6", start: new Time(10,15), end: new Time(10,35)},
+{name: "Period 7", id: "Period7", start: new Time(10,39), end: new Time(10,59)},
+{name: "Period 8", id: "Period8", start: new Time(11,3), end: new Time(11,23)},
+{name: "Period 9", id: "Period9", start: new Time(11,27), end: new Time(11,47)},
+{name: "Period 10", id: "Period10", start: new Time(11,51), end: new Time(12,11)}
+];
+
 
 
 function updateSchedule(schedule) {
@@ -168,7 +181,7 @@ function setBackground() {
 }
 
 // tabs
-$('#schedule a[href="#regular"]').click(function (e) {
+$('#schedule a[href="#Regular"]').click(function (e) {
 	e.preventDefault();
 	$(this).tab('show');
 	$('#HR').hide();
@@ -177,7 +190,7 @@ $('#schedule a[href="#regular"]').click(function (e) {
 	updatePeriod(regSchedule);
 	schedule = regSchedule;
 })
-$('#schedule a[href="#homeroom"]').click(function (e) {
+$('#schedule a[href="#Homeroom"]').click(function (e) {
 	e.preventDefault();
 	$(this).tab('show');
 	$('#HR').show();
@@ -186,7 +199,7 @@ $('#schedule a[href="#homeroom"]').click(function (e) {
 	updatePeriod(hrSchedule);
 	schedule = hrSchedule;
 })
-$('#schedule a[href="#AMChalfday"]').click(function (e) {
+$('#schedule a[href="#AMCHalfDay"]').click(function (e) {
 	e.preventDefault();
 	$(this).tab('show');
 	$('#HR').hide();
@@ -194,6 +207,15 @@ $('#schedule a[href="#AMChalfday"]').click(function (e) {
 	updateSchedule(AMCHalfDay);
 	updatePeriod(AMCHalfDay);
 	schedule = AMCHalfDay;
+})
+$('#schedule a[href="#PTCHalfDay"]').click(function (e) {
+	e.preventDefault();
+	$(this).tab('show');
+	$('#HR').hide();
+	$('#FirstHR').hide();
+	updateSchedule(PTCHalfDay);
+	updatePeriod(PTCHalfDay);
+	schedule = PTCHalfDay;
 })
 
 // global variable for changing schedule
@@ -205,11 +227,11 @@ $( function() {
 
 	var today = new Date();
 	if ( today.getDay() == 2 )
-		$('#schedule a[href="#homeroom"]').click();
+		$('#schedule a[href="#Homeroom"]').click();
 	else
-		$('#schedule a[href="#regular"]').click();
+		$('#schedule a[href="#Regular"]').click();
 
-	updateTime()
+	updateTime();
 	$("#content").fadeIn(1500);
 	setInterval(
 		function() { updateTime(); updatePeriod(schedule); },
