@@ -5,31 +5,27 @@ function Time(h, m) {
 	this.minutes = arguments.length < 2 || m > 59 || m < 0 ? 0 : m;
 }
 
-Time.prototype.toMin = function() {
-	return this.hours * 60 + this.minutes;
-}
-
-Time.prototype.toString = function() {
-	var str = this.hours == 0 ? "12"
-		: this.hours < 13 ? this.hours + ''
-		: this.hours - 12 + '';
-	str += ':';
-	str += this.minutes < 10 ? '0'+this.minutes : this.minutes;
-	str += ' ';
-	str += this.hours < 12 ? "AM" : "PM";
-	return str;
-}
-
-Time.prototype.isBetween = function(start, end) {
-	return this.toMin() >= start.toMin() && this.toMin() < end.toMin();
-}
-
-Time.prototype.subtract = function(t) {
-	var x = this.toMin(), y = t.toMin();
-	if ( x > y )
-		return x - y;
-	else
-		return x - y + (24 * 60);
+Time.prototype = {
+	valueOf: function() {
+		return this.hours * 60 + this.minutes;
+	},
+	toString: function() {
+		var str = this.hours == 0 ? "12"
+			: this.hours < 13 ? this.hours + ''
+			: this.hours - 12 + '';
+		str += ':';
+		str += this.minutes < 10 ? '0'+this.minutes : this.minutes;
+		str += ' ';
+		str += this.hours < 12 ? "AM" : "PM";
+		return str;
+	},
+	isIn: function(start, end) {
+		return this >= start && this < end;
+	},
+	subtract: function(t) {
+		var x = this.valueOf(), y = t.valueOf();
+		return x - y + (x > y ? 0 : 24 * 60);
+	}
 }
 
 // End of Time class
@@ -98,8 +94,8 @@ var AMCHalfDay = [
 
 function updateSchedule(schedule) {
 	for (var i = 1; i < schedule.length; i++) {
-		var str = schedule[i].start + " - ";
-		str += schedule[i].end;
+		var str = schedule[i].start.toString() + " - " +
+			schedule[i].end.toString();
 		$("#Period" + i + ">.time").html(str);
 	}
 }
@@ -116,7 +112,7 @@ function updatePeriod(schedule) {
 	var dow = today.getDay(); // day of week
 	var currTime = new Time(today.getHours(), today.getMinutes());
 
-	if ( ! currTime.isBetween(schedule[0].start, schedule[0].end) ||
+	if ( ! currTime.isIn(schedule[0].start, schedule[0].end) ||
 			dow == 6 || dow == 0) {
 		// If not during school
 		for (var i = 1; i < schedule.length; i++)
@@ -133,11 +129,11 @@ function updatePeriod(schedule) {
 
 		// add 24 or 48 hours if on the weekend
 		hours +=
-			(dow == 5 && currTime.toMin() > schedule[0].end.toMin()) ||
-			(dow == 6 && currTime.toMin() < schedule[0].start.toMin()) ?
+			(dow == 5 && currTime > schedule[0].end) ||
+			(dow == 6 && currTime < schedule[0].start) ?
 			24 * 2 :
-			(dow == 6 && currTime.toMin() > schedule[0].start.toMin()) ||
-			(dow == 0 && currTime.toMin() < schedule[0].start.toMin()) ?
+			(dow == 6 && currTime > schedule[0].start) ||
+			(dow == 0 && currTime < schedule[0].start) ?
 			24 : 0;
 
 		$("#until-school").html(hours + " hours and " +
@@ -148,7 +144,7 @@ function updatePeriod(schedule) {
 			$("#until-school").html("");
 		var min;
 		for (var i = 1; i < schedule.length; i++) {
-			if ( currTime.isBetween(schedule[i].start,schedule[i].end) ) {
+			if ( currTime.isIn(schedule[i].start,schedule[i].end) ) {
 				$("#per").html("Period " + i);
 				if ( ! $("#Period" + i).hasClass("info") )
 					$("#Period" + i).addClass("info");
@@ -158,7 +154,7 @@ function updatePeriod(schedule) {
 				if ( $("#Period" + i).hasClass("info") )
 					$("#Period" + i).removeClass("info");
 
-				if ( currTime.isBetween(schedule[i-1].end,schedule[i].start) ) {
+				if ( currTime.isIn(schedule[i-1].end,schedule[i].start) ) {
 					$("#per").html("Before Period " + i);
 					min = schedule[i].start.subtract(currTime);
 					$("#min-left").html( min + " minutes left");
