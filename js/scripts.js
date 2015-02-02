@@ -135,7 +135,7 @@ function updatePeriod(schedule) {
 			$("#per").html("");
 			$("#min-left").html("");
 		}
-		var minutes = schedule[0].start - currTime;
+		var minutes = schedule[0].start.subtract(currTime);
 		var hours = Math.floor(minutes / 60);
 		minutes %= 60;
 
