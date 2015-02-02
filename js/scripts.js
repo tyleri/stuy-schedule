@@ -80,6 +80,21 @@ var hrSchedule = [
 	{start: new Time(14,55), end: new Time(15,35)}
 ];
 
+var AMCHalfDay = [
+	{start: new Time(8,35), end: new Time(12,41)},
+	{start: new Time(8,35), end: new Time(8,56)},
+	{start: new Time(9), end: new Time(9,21)},
+	{start: new Time(9,25), end: new Time(9,46)},
+	{start: new Time(9,50), end: new Time(10,11)},
+	{start: new Time(10,15), end: new Time(10,36)},
+	{start: new Time(10,40), end: new Time(11,1)},
+	{start: new Time(11,5), end: new Time(11,26)},
+	{start: new Time(11,30), end: new Time(11,51)},
+	{start: new Time(11,55), end: new Time(12,16)},
+	{start: new Time(12,20), end: new Time(12,41)}
+];
+
+
 
 function updateSchedule(schedule) {
 	for (var i = 1; i < schedule.length; i++) {
@@ -112,7 +127,7 @@ function updatePeriod(schedule) {
 			$("#per").html("");
 			$("#min-left").html("");
 		}
-		var minutes = new Time(8).subtract( currTime );
+		var minutes = schedule[0].start.subtract( currTime );
 		var hours = Math.floor(minutes / 60);
 		minutes %= 60;
 
@@ -170,6 +185,13 @@ $('#schedule a[href="#homeroom"]').click(function (e) {
 	updateSchedule(hrSchedule);
 	updatePeriod(hrSchedule);
 	schedule = hrSchedule;
+})
+$('#schedule a[href="#AMChalfday"]').click(function (e) {
+	e.preventDefault();
+	$(this).tab('show');
+	updateSchedule(AMCHalfDay);
+	updatePeriod(AMCHalfDay);
+	schedule = AMCHalfDay;
 })
 
 // global variable for changing schedule
