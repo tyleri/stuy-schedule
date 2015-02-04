@@ -163,15 +163,15 @@ function updatePeriod(schedule) {
 					$("#" + curr.id).addClass("info");
 				min = curr.end - currTime;
 				$("#min-left").html( min + " minutes left");
-			} else if (i != 0) {
+			} else {
 				if ( $("#" + curr.id).hasClass("info") )
 					$("#" + curr.id).removeClass("info");
-
-				if ( currTime.isIn(schedule[i-1].end,curr.start) ) {
-					$("#per").html("Before " + curr.name);
-					min = curr.start - currTime;
-					$("#min-left").html( min + " minutes left");
-				} 
+				if (i != 0) 
+					if ( currTime.isIn(schedule[i-1].end,curr.start) ) {
+						$("#per").html("Before " + curr.name);
+						min = curr.start - currTime;
+						$("#min-left").html( min + " minutes left");
+					} 
 			}
 		}
 	}
