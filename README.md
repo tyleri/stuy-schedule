@@ -2,20 +2,17 @@ stuy-schedule
 =============
 <p>
 You can find the website for this project at
-<a href='http://tyleri.github.io/stuy-schedule'>
-	tyleri.github.io/stuy-schedule
-</a>
+<a href='http://tyleri.github.io/stuy-schedule'>tyleri.github.io/stuy-schedule</a>
 .
 </p>
 
 <p>
-This is a simple website used to keep track of the current period, based
-on the schedule of my high school, Stuyvesant High School. This project 
+This is a simple website used to keep track of the current period, using the 
+schedule of Stuyvesant High School. This project 
 is based off of the schedule website created by Mr. Peter Brooks, a 
 teacher at the school. You can find his original website at 
 <a href='http://bert.stuy.edu/pbrooks/schedules/schedules.py'>
-	bert.stuy.edu/pbrooks/schedules/schedules.py
-</a>
+bert.stuy.edu/pbrooks/schedules/schedules.py</a>
 .
 </p>
 
