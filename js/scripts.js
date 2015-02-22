@@ -49,57 +49,57 @@ Date.prototype.toString = function() {
 };
 
 var regSchedule = [
-{name: "Period 1", id: "Period1", start: new Time(8), end: new Time(8,41)},
-{name: "Period 2", id: "Period2", start: new Time(8,45), end: new Time(9,26)},
-{name: "Period 3", id: "Period3", start: new Time(9,31), end: new Time(10,15)},
-{name: "Period 4", id: "Period4", start: new Time(10,20), end: new Time(11,1)},
-{name: "Period 5", id: "Period5", start: new Time(11,6), end: new Time(11,47)},
-{name: "Period 6", id: "Period6", start: new Time(11,52), end: new Time(12,33)},
-{name: "Period 7", id: "Period7", start: new Time(12,38), end: new Time(13,19)},
-{name: "Period 8", id: "Period8", start: new Time(13,24), end: new Time(14,5)},
-{name: "Period 9", id: "Period9", start: new Time(14,9), end: new Time(14,50)},
-{name: "Period 10", id: "Period10", start: new Time(14,54), end: new Time(15,35)}
+{name: "Period 1", id: "p1", start: new Time(8), end: new Time(8,41)},
+{name: "Period 2", id: "p2", start: new Time(8,45), end: new Time(9,26)},
+{name: "Period 3", id: "p3", start: new Time(9,31), end: new Time(10,15)},
+{name: "Period 4", id: "p4", start: new Time(10,20), end: new Time(11,1)},
+{name: "Period 5", id: "p5", start: new Time(11,6), end: new Time(11,47)},
+{name: "Period 6", id: "p6", start: new Time(11,52), end: new Time(12,33)},
+{name: "Period 7", id: "p7", start: new Time(12,38), end: new Time(13,19)},
+{name: "Period 8", id: "p8", start: new Time(13,24), end: new Time(14,5)},
+{name: "Period 9", id: "p9", start: new Time(14,9), end: new Time(14,50)},
+{name: "Period 10", id: "p10", start: new Time(14,54), end: new Time(15,35)}
 ];
 
 var hrSchedule = [
-{name: "Period 1", id: "Period1", start: new Time(8), end: new Time(8,40)},
-{name: "Period 2", id: "Period2", start: new Time(8,45), end: new Time(9,25)},
-{name: "Period 3", id: "Period3", start: new Time(9,29), end: new Time(10,9)},
+{name: "Period 1", id: "p1", start: new Time(8), end: new Time(8,40)},
+{name: "Period 2", id: "p2", start: new Time(8,45), end: new Time(9,25)},
+{name: "Period 3", id: "p3", start: new Time(9,29), end: new Time(10,9)},
 {name: "Homeroom", id: "HR", start: new Time(10,13), end: new Time(10,25)},
-{name: "Period 4", id: "Period4", start: new Time(10,30), end: new Time(11,10)},
-{name: "Period 5", id: "Period5", start: new Time(11,14), end: new Time(11,54)},
-{name: "Period 6", id: "Period6", start: new Time(11,58), end: new Time(12,38)},
-{name: "Period 7", id: "Period7", start: new Time(12,42), end: new Time(13,22)},
-{name: "Period 8", id: "Period8", start: new Time(13,26), end: new Time(14,6)},
-{name: "Period 9", id: "Period9", start: new Time(14,10), end: new Time(14,50)},
-{name: "Period 10", id: "Period10", start: new Time(14,55), end: new Time(15,35)}
+{name: "Period 4", id: "p4", start: new Time(10,30), end: new Time(11,10)},
+{name: "Period 5", id: "p5", start: new Time(11,14), end: new Time(11,54)},
+{name: "Period 6", id: "p6", start: new Time(11,58), end: new Time(12,38)},
+{name: "Period 7", id: "p7", start: new Time(12,42), end: new Time(13,22)},
+{name: "Period 8", id: "p8", start: new Time(13,26), end: new Time(14,6)},
+{name: "Period 9", id: "p9", start: new Time(14,10), end: new Time(14,50)},
+{name: "Period 10", id: "p10", start: new Time(14,55), end: new Time(15,35)}
 ];
 
 var AMCHalfDay = [
 {name: "Homeroom", id: "FirstHR", start: new Time(8,10), end: new Time(8,30)},
-{name: "Period 1", id: "Period1", start: new Time(8,35), end: new Time(8,56)},
-{name: "Period 2", id: "Period2", start: new Time(9), end: new Time(9,21)},
-{name: "Period 3", id: "Period3", start: new Time(9,25), end: new Time(9,46)},
-{name: "Period 4", id: "Period4", start: new Time(9,50), end: new Time(10,11)},
-{name: "Period 5", id: "Period5", start: new Time(10,15), end: new Time(10,36)},
-{name: "Period 6", id: "Period6", start: new Time(10,40), end: new Time(11,1)},
-{name: "Period 7", id: "Period7", start: new Time(11,5), end: new Time(11,26)},
-{name: "Period 8", id: "Period8", start: new Time(11,30), end: new Time(11,51)},
-{name: "Period 9", id: "Period9", start: new Time(11,55), end: new Time(12,16)},
-{name: "Period 10", id: "Period10", start: new Time(12,20), end: new Time(12,41)}
+{name: "Period 1", id: "p1", start: new Time(8,35), end: new Time(8,56)},
+{name: "Period 2", id: "p2", start: new Time(9), end: new Time(9,21)},
+{name: "Period 3", id: "p3", start: new Time(9,25), end: new Time(9,46)},
+{name: "Period 4", id: "p4", start: new Time(9,50), end: new Time(10,11)},
+{name: "Period 5", id: "p5", start: new Time(10,15), end: new Time(10,36)},
+{name: "Period 6", id: "p6", start: new Time(10,40), end: new Time(11,1)},
+{name: "Period 7", id: "p7", start: new Time(11,5), end: new Time(11,26)},
+{name: "Period 8", id: "p8", start: new Time(11,30), end: new Time(11,51)},
+{name: "Period 9", id: "p9", start: new Time(11,55), end: new Time(12,16)},
+{name: "Period 10", id: "p10", start: new Time(12,20), end: new Time(12,41)}
 ];
 
 var PTCHalfDay = [
-{name: "Period 1", id: "Period1", start: new Time(8,15), end: new Time(8,35)},
-{name: "Period 2", id: "Period2", start: new Time(8,39), end: new Time(8,59)},
-{name: "Period 3", id: "Period3", start: new Time(9,3), end: new Time(9,23)},
-{name: "Period 4", id: "Period4", start: new Time(9,27), end: new Time(9,47)},
-{name: "Period 5", id: "Period5", start: new Time(9,51), end: new Time(10,11)},
-{name: "Period 6", id: "Period6", start: new Time(10,15), end: new Time(10,35)},
-{name: "Period 7", id: "Period7", start: new Time(10,39), end: new Time(10,59)},
-{name: "Period 8", id: "Period8", start: new Time(11,3), end: new Time(11,23)},
-{name: "Period 9", id: "Period9", start: new Time(11,27), end: new Time(11,47)},
-{name: "Period 10", id: "Period10", start: new Time(11,51), end: new Time(12,11)}
+{name: "Period 1", id: "p1", start: new Time(8,15), end: new Time(8,35)},
+{name: "Period 2", id: "p2", start: new Time(8,39), end: new Time(8,59)},
+{name: "Period 3", id: "p3", start: new Time(9,3), end: new Time(9,23)},
+{name: "Period 4", id: "p4", start: new Time(9,27), end: new Time(9,47)},
+{name: "Period 5", id: "p5", start: new Time(9,51), end: new Time(10,11)},
+{name: "Period 6", id: "p6", start: new Time(10,15), end: new Time(10,35)},
+{name: "Period 7", id: "p7", start: new Time(10,39), end: new Time(10,59)},
+{name: "Period 8", id: "p8", start: new Time(11,3), end: new Time(11,23)},
+{name: "Period 9", id: "p9", start: new Time(11,27), end: new Time(11,47)},
+{name: "Period 10", id: "p10", start: new Time(11,51), end: new Time(12,11)}
 ];
 
 
