@@ -223,8 +223,6 @@ var schedule;
 
 $( function() {
 
-	$("#content").hide();
-
 	var today = new Date();
 	if ( today.getDay() == 2 )
 		$('#schedule a[href="#Homeroom"]').click();
@@ -232,7 +230,7 @@ $( function() {
 		$('#schedule a[href="#Regular"]').click();
 
 	updateTime();
-	$("#content").fadeIn(1500);
+	$("body").fadeIn(1500);
 	setInterval(
 		function() { updateTime(); updatePeriod(schedule); },
 		1000 );

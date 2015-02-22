@@ -2,6 +2,7 @@ body {
 	background-color:69D9E0;
 	font-family: 'Raleway', sans-serif;
 	min-width:330px;
+    display: none;
 }
 #clock {
 	font-size:55px;
