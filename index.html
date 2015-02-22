@@ -12,19 +12,17 @@
 	<body id='content'>
 
 		<div class='container'>
-			<div class='text-center' id='clock'></div>
+            <div class='text-center' id='clock'></div>
 		</div>
 
-		<div class='container' id='curr'>
-			<div class='row text-center'>
-				<div class='col-sm-6' id='per'></div>
-				<div class='col-sm-6' id='min-left'></div>
+        <div class='container'>
+			<div class='text-center col-sm-4' id='curr'>
+				<div id='per'></div>
+				<div id='min-left'></div>
 				<div id='until-school'></div>
 			</div>
-		</div>
 
-		<div class='container'>
-
+            <div class='col-sm-7 col-sm-offset-1'>
 			<ul class='nav nav-tabs pull-right' id='schedule'>
 				<li role='presentation' ><a href='#Regular'>
 					Regular
@@ -46,6 +44,7 @@
 				    </ul>
 				  </li>
 			</ul>
+            <div class='clearfix visible-xs-block'></div>
 
 			<table class='table text-center'>
 				<tr id='FirstHR'>
@@ -97,6 +96,7 @@
 					<td class='time'></td>
 				</tr>
 			</table>
+            </div>
 
 		</div>
 
