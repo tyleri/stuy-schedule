@@ -189,6 +189,7 @@ $('#schedule a[href="#Regular"]').click(function (e) {
 	updateSchedule(regSchedule);
 	updatePeriod(regSchedule);
 	schedule = regSchedule;
+    $('#currSchedule').html("Regular");
 })
 $('#schedule a[href="#Homeroom"]').click(function (e) {
 	e.preventDefault();
@@ -198,6 +199,7 @@ $('#schedule a[href="#Homeroom"]').click(function (e) {
 	updateSchedule(hrSchedule);
 	updatePeriod(hrSchedule);
 	schedule = hrSchedule;
+    $('#currSchedule').html("Homeroom");
 })
 $('#schedule a[href="#AMCHalfDay"]').click(function (e) {
 	e.preventDefault();
@@ -207,6 +209,7 @@ $('#schedule a[href="#AMCHalfDay"]').click(function (e) {
 	updateSchedule(AMCHalfDay);
 	updatePeriod(AMCHalfDay);
 	schedule = AMCHalfDay;
+    $('#currSchedule').html("AMC Half Day");
 })
 $('#schedule a[href="#PTCHalfDay"]').click(function (e) {
 	e.preventDefault();
@@ -216,6 +219,7 @@ $('#schedule a[href="#PTCHalfDay"]').click(function (e) {
 	updateSchedule(PTCHalfDay);
 	updatePeriod(PTCHalfDay);
 	schedule = PTCHalfDay;
+    $('#currSchedule').html("PTC Half Day");
 })
 
 // global variable for changing schedule
