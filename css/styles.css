@@ -1,25 +1,36 @@
 body {
-    background-color:69D9E0;
+    background-color: 69D9E0;
     font-family: 'Raleway', sans-serif;
-    min-width:320px;
+    min-width: 320px;
     display: none;
 }
 #clock {
     font-size: 3.5em;
-    margin-bottom:18px;
-    color:white;
+    margin-bottom: 18px;
+    color: white;
 }
 #now {
-    font-size:2em;
-    color:white;
+    font-size: 2em;
+    color: white;
+}
+#cal {
+    margin-top: 18px;
+}
+.nav {
+    margin-top: 18px;
 }
 table {
-    background-color:white;
-    font-size:1.1em;
-    color:01AFD2;
+    background-color: white;
+    font-size: 1.1em;
+    color: 01AFD2;
 }
 @media screen and (min-width: 768px) {
     table {
         font-size: 1.5em;
+    }
+}
+@media screen and (max-width: 767px) {
+    #cal {
+        display: none;
     }
 }
