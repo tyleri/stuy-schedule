@@ -1,21 +1,20 @@
 body {
-	background-color:69D9E0;
-	font-family: 'Raleway', sans-serif;
-	min-width:330px;
+    background-color:69D9E0;
+    font-family: 'Raleway', sans-serif;
+    min-width:320px;
     display: none;
 }
 #clock {
-	font-size:55px;
-	margin-bottom:18px;
-	color:white;
+    font-size: 3.5em;
+    margin-bottom:18px;
+    color:white;
 }
 #curr {
-	font-size:30px;
-	margin-bottom:18px;
-	color:white;
+    font-size:2em;
+    color:white;
 }
 table {
-	background-color:white;
-	font-size:18px;
-	color:01AFD2;
+    background-color:white;
+    font-size:1.2em;
+    color:01AFD2;
 }
