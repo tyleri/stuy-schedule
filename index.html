@@ -36,6 +36,7 @@
         <div id='until-school'></div>
 
         <div class='container-fluid'>
+
             <div class='row'>
             <div class='col-sm-4' id='left-col'>
                 <div class="embed-responsive embed-responsive-4by3" id='cal'>
@@ -46,83 +47,106 @@
                 </div>
             </div>
 
-            <div class='col-sm-8'>
+                <div class='col-sm-8'>
 
-                <ul class='nav nav-tabs' id='schedule'>
-                    <li role="presentation" class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
-                            <span id='currSchedule'></span> Schedule
-                            <span class='caret'></span>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li role='presentation'><a href='#Regular'>
-                                Regular
-                            </a></li>
-                            <li role='presentation'><a href='#Homeroom'>
-                                Homeroom
-                            </a></li>
-                            <li role='presentation'><a href='#AMCHalfDay'>
-                                AMC Half Day
-                            </a></li>
-                            <li role='presentation'><a href='#PTCHalfDay'>
-                                PTC Half Day
-                            </a></li>
-                        </ul>
-                    </li>
-                </ul>
+                    <ul class='nav nav-tabs' id='schedule'>
 
-                <table class='table text-center'>
-                    <tr id='FirstHR'>
-                        <td>Homeroom</td>
-                        <td class='time'></td>
-                    </tr>
-                    <tr id='p1'>
-                        <td>Period 1</td>
-                        <td class='time'></td>
-                    </tr>
-                    <tr id='p2'>
-                        <td>Period 2</td>
-                        <td class='time'></td>
-                    </tr>
-                    <tr id='p3'>
-                        <td>Period 3</td>
-                        <td class='time'></td>
-                    </tr>
-                    <tr id='HR'>
-                        <td>Homeroom</td>
-                        <td class='time'></td>
-                    </tr>
-                    <tr id='p4'>
-                        <td>Period 4</td>
-                        <td class='time'></td>
-                    </tr>
-                    <tr id='p5'>
-                        <td>Period 5</td>
-                        <td class='time'></td>
-                    </tr>
-                    <tr id='p6'>
-                        <td>Period 6</td>
-                        <td class='time'></td>
-                    </tr>
-                    <tr id='p7'>
-                        <td>Period 7</td>
-                        <td class='time'></td>
-                    </tr>
-                    <tr id='p8'>
-                        <td>Period 8</td>
-                        <td class='time'></td>
-                    </tr>
-                    <tr id='p9'>
-                        <td>Period 9</td>
-                        <td class='time'></td>
-                    </tr>
-                    <tr id='p10'>
-                        <td>Period 10</td>
-                        <td class='time'></td>
-                    </tr>
-                </table>
+                        <li role="presentation" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                                <span id='currSchedule'></span> Schedule
+                                <span class='caret'></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li role='presentation'><a href='#Regular'>
+                                    Regular
+                                </a></li>
+                                <li role='presentation'><a href='#Homeroom'>
+                                    Homeroom
+                                </a></li>
+                                <li role='presentation'><a href='#AMCHalfDay'>
+                                    AMC Half Day
+                                </a></li>
+                                <li role='presentation'><a href='#PTCHalfDay'>
+                                    PTC Half Day
+                                </a></li>
+                            </ul>
+                        </li>
+
+                        <li role='presentation' id='caltab'>
+                            <a href='#Cal'>Calendar</a>
+                        </li>
+
+                        <li role='presentation' id='weathertab'>
+                            <a href='#Weather'>Weather</a>
+                        </li>
+
+                    </ul>
+
+                    <div>
+                        <table class='table text-center'>
+                            <tr id='FirstHR'>
+                                <td>Homeroom</td>
+                                <td class='time'></td>
+                            </tr>
+                            <tr id='p1'>
+                                <td>Period 1</td>
+                                <td class='time'></td>
+                            </tr>
+                            <tr id='p2'>
+                                <td>Period 2</td>
+                                <td class='time'></td>
+                            </tr>
+                            <tr id='p3'>
+                                <td>Period 3</td>
+                                <td class='time'></td>
+                            </tr>
+                            <tr id='HR'>
+                                <td>Homeroom</td>
+                                <td class='time'></td>
+                            </tr>
+                            <tr id='p4'>
+                                <td>Period 4</td>
+                                <td class='time'></td>
+                            </tr>
+                            <tr id='p5'>
+                                <td>Period 5</td>
+                                <td class='time'></td>
+                            </tr>
+                            <tr id='p6'>
+                                <td>Period 6</td>
+                                <td class='time'></td>
+                            </tr>
+                            <tr id='p7'>
+                                <td>Period 7</td>
+                                <td class='time'></td>
+                            </tr>
+                            <tr id='p8'>
+                                <td>Period 8</td>
+                                <td class='time'></td>
+                            </tr>
+                            <tr id='p9'>
+                                <td>Period 9</td>
+                                <td class='time'></td>
+                            </tr>
+                            <tr id='p10'>
+                                <td>Period 10</td>
+                                <td class='time'></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="embed-responsive embed-responsive-4by3" id='caltabinfo'>
+                        <iframe src="https://www.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=stuyhs2015%40gmail.com&amp;color=%232952A3&amp;src=c64r833f84kehvpgk4ihecpb7dtirajl%40import.calendar.google.com&amp;color=%232F6309&amp;src=p%23weather%40group.v.calendar.google.com&amp;color=%23AB8B00&amp;ctz=America%2FNew_York" scrolling="no"></iframe>
+                    </div>
+
+                    <div id='weathertabinfo'>
+                            <iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="100%" src="https://forecast.io/embed/#lat=40.718014&lon=-74.013894&name=Stuyvesant HS"> </iframe> 
+                    </div>
+
+                </div>
+
             </div>
-        </div>
+
         </div>
 
     </body>

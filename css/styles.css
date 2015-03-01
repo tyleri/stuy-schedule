@@ -31,10 +31,24 @@ table {
 @media screen and (min-width: 768px) {
     table {
         font-size: 1.5em;
+        display: table;
+    }
+    #caltab, #weathertab, #caltabinfo, #weathertabinfo {
+        display: none;
     }
 }
 @media screen and (max-width: 767px) {
     #left-col {
         display: none;
     }
+}
+@media screen and (max-width: 530px) {
+    #weathertabinfo>iframe {
+        max-width: 380px;
+        display: block;
+        margin: 0 auto;
+    }
+}
+#weathertabinfo {
+    background-color: white;
 }

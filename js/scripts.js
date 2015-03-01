@@ -190,6 +190,9 @@ $('#schedule a[href="#Regular"]').click(function (e) {
 	updatePeriod(regSchedule);
 	schedule = regSchedule;
     $('#currSchedule').html("Regular");
+    $('#caltabinfo').hide();
+    $('#weathertabinfo').hide();
+    $('.table').show();
 })
 $('#schedule a[href="#Homeroom"]').click(function (e) {
 	e.preventDefault();
@@ -200,6 +203,9 @@ $('#schedule a[href="#Homeroom"]').click(function (e) {
 	updatePeriod(hrSchedule);
 	schedule = hrSchedule;
     $('#currSchedule').html("Homeroom");
+    $('#caltabinfo').hide();
+    $('#weathertabinfo').hide();
+    $('.table').show();
 })
 $('#schedule a[href="#AMCHalfDay"]').click(function (e) {
 	e.preventDefault();
@@ -210,6 +216,9 @@ $('#schedule a[href="#AMCHalfDay"]').click(function (e) {
 	updatePeriod(AMCHalfDay);
 	schedule = AMCHalfDay;
     $('#currSchedule').html("AMC Half Day");
+    $('#caltabinfo').hide();
+    $('#weathertabinfo').hide();
+    $('.table').show();
 })
 $('#schedule a[href="#PTCHalfDay"]').click(function (e) {
 	e.preventDefault();
@@ -220,6 +229,25 @@ $('#schedule a[href="#PTCHalfDay"]').click(function (e) {
 	updatePeriod(PTCHalfDay);
 	schedule = PTCHalfDay;
     $('#currSchedule').html("PTC Half Day");
+    $('#caltabinfo').hide();
+    $('#weathertabinfo').hide();
+    $('.table').show();
+})
+$('#schedule a[href="#Cal"]').click(function (e) {
+	e.preventDefault();
+	$(this).tab('show');
+    $('#currSchedule').html("");
+    $('#caltabinfo').show();
+	$('.table').hide();
+    $('#weathertabinfo').hide();
+})
+$('#schedule a[href="#Weather"]').click(function (e) {
+	e.preventDefault();
+	$(this).tab('show');
+    $('#currSchedule').html("");
+    $('#weathertabinfo').show();
+	$('.table').hide();
+    $('#caltabinfo').hide();
 })
 
 // global variable for changing schedule
