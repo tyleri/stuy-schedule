@@ -18,3 +18,15 @@ separate Time class (only a Date class that includes fields for time),
 I wrote my own class to better implement the methods I needed for the
 function.  The Time class can be found at the top of the scripts.js
 file.
+
+After creating the basic table for keeping track of the period, I
+proceeded to add calendar and weather widgets. The calendar is a
+Google Calendar generated widget that includes three sources: one
+simply shows the weather, while the other two pulls in school events
+from the calendar on the
+[Stuyvesant website](http://stuy.enschool.org/).
+The weather widget was provided by
+[forecast.io](http://blog.forecast.io/forecast-embeds/)
+and displays the weather info for Stuyvesant's latitude and
+longitude coordinates, which were found using
+[iTouchMap](http://itouchmap.com/latlong.html).
