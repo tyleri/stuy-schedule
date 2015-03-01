@@ -30,19 +30,24 @@
 
     <body>
 
-        <div class='text-center' id='clock'></div>
+        <div id='clock'></div>
+        <div id='per'></div>
+        <div id='min-left'></div>
+        <div id='until-school'></div>
 
         <div class='container-fluid'>
-            <div class='text-center col-sm-5' id='now'>
-                <div id='per'></div>
-                <div id='min-left'></div>
-                <div id='until-school'></div>
+            <div class='row'>
+            <div class='col-sm-4' id='left-col'>
                 <div class="embed-responsive embed-responsive-4by3" id='cal'>
                     <iframe src="https://www.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=stuyhs2015%40gmail.com&amp;color=%232952A3&amp;src=c64r833f84kehvpgk4ihecpb7dtirajl%40import.calendar.google.com&amp;color=%232F6309&amp;src=p%23weather%40group.v.calendar.google.com&amp;color=%23AB8B00&amp;ctz=America%2FNew_York" scrolling="no"></iframe>
                 </div>
+                <div class="embed-responsive embed-responsive-4by3" id='weather'>
+                <iframe id="forecast_embed" type="text/html" src="https://forecast.io/embed/#lat=40.718014&lon=-74.013894&name=Stuyvesant HS"> </iframe> 
+                </div>
             </div>
 
-            <div class='col-sm-7'>
+            <div class='col-sm-7 col-sm-offset-1'>
+
                 <ul class='nav nav-tabs' id='schedule'>
                     <li role="presentation" class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
@@ -118,6 +123,7 @@
                     </tr>
                 </table>
             </div>
+        </div>
         </div>
 
     </body>
