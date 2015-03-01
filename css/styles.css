@@ -15,6 +15,7 @@ body {
 }
 #cal {
     margin-top: 18px;
+    border-radius: 10px;
 }
 .nav {
     margin-top: 18px;
