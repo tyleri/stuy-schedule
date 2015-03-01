@@ -17,7 +17,6 @@ body {
     text-align: center;
 }
 #cal {
-    border-radius: 10px;
     margin-bottom: 18px;
 }
 @media screen and (min-width: 1225px) {
