@@ -19,11 +19,9 @@ body {
 #cal {
     margin-bottom: 18px;
 }
-@media screen and (min-width: 1225px) {
-    #weather {
-        width: 380px;
-        margin: 0px auto;
-    }
+#weather {
+    max-width: 380px;
+    margin: 0px auto;
 }
 table {
     background-color: white;
