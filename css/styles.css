@@ -23,6 +23,9 @@ body {
     max-width: 380px;
     margin: 0px auto;
 }
+.glyphicon {
+    font-size: 1.5em;
+}
 table {
     background-color: white;
     font-size: 1.1em;

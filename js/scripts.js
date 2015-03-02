@@ -189,7 +189,7 @@ $('#schedule a[href="#Regular"]').click(function (e) {
 	updateSchedule(regSchedule);
 	updatePeriod(regSchedule);
 	schedule = regSchedule;
-    $('#currSchedule').html("Regular");
+    $('#currSchedule').html("Regular Schedule");
     $('#caltabinfo').hide();
     $('#weathertabinfo').hide();
     $('.table').show();
@@ -236,7 +236,7 @@ $('#schedule a[href="#PTCHalfDay"]').click(function (e) {
 $('#schedule a[href="#Cal"]').click(function (e) {
 	e.preventDefault();
 	$(this).tab('show');
-    $('#currSchedule').html("");
+    $('#currSchedule').html("Schedule");
     $('#caltabinfo').show();
 	$('.table').hide();
     $('#weathertabinfo').hide();
@@ -244,7 +244,7 @@ $('#schedule a[href="#Cal"]').click(function (e) {
 $('#schedule a[href="#Weather"]').click(function (e) {
 	e.preventDefault();
 	$(this).tab('show');
-    $('#currSchedule').html("");
+    $('#currSchedule').html("Schedule");
     $('#weathertabinfo').show();
 	$('.table').hide();
     $('#caltabinfo').hide();
