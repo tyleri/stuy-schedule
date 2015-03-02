@@ -255,11 +255,7 @@ var schedule;
 
 $( function() {
 
-	var today = new Date();
-	if ( today.getDay() == 2 )
-		$('#schedule a[href="#Homeroom"]').click();
-	else
-		$('#schedule a[href="#Regular"]').click();
+    $('#schedule a[href="#Regular"]').click();
 
 	updateTime();
 	$("body").fadeIn(1500);
