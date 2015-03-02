@@ -1,4 +1,4 @@
-stuy-schedule
+Stuyvesant Schedule
 =============
 
 You can find the website for this project at
@@ -12,12 +12,15 @@ at the school. You can find his original website at
 
 [1]: http://bert.stuy.edu/pbrooks/schedules/schedules.py
 
-For this website, I used Bootstrap and jQuery, along with my own
-custom HTML, CSS, and JavaScript. Since JavaScript doesn't have a
-separate Time class (only a Date class that includes fields for time),
-I wrote my own class to better implement the methods I needed for the
-function.  The Time class can be found at the top of the scripts.js
-file.
+For this website, I used
+[Bootstrap](http://getbootstrap.com/)
+and
+[jQuery](https://jquery.com/)
+, along with my own custom HTML, CSS, and JavaScript. Since
+JavaScript doesn't have a separate Time class (only a Date class
+that includes fields for time), I wrote my own class to better
+implement the methods I needed for the function. The Time class
+can be found at the top of the scripts.js file.
 
 After creating the basic table for keeping track of the period, I
 proceeded to add calendar and weather widgets. The calendar is a
@@ -30,3 +33,10 @@ The weather widget was provided by
 and displays the weather info for Stuyvesant's latitude and
 longitude coordinates, which were found using
 [iTouchMap](http://itouchmap.com/latlong.html).
+The favicon was provided by
+[freefavicon.com](http://www.freefavicon.com/)
+and was scaled to different sizes using
+[realfavicongenerator.net](http://realfavicongenerator.net/).
+The images for the tabs are from the
+[Glyphicons](http://glyphicons.com/)
+Halflings set included with Bootstrap.
